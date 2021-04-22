@@ -7,11 +7,13 @@ package proyecto_base_d_datos;
 import clases.connection_mysql;
 import clases.VerTabla;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
 import javax.swing.JOptionPane;
-
+import java.net.URISyntaxException;
 /**
  *
- * @author Asus-PC
+ * @author Diego Alexander Gaviria
  */
 public class consulta extends javax.swing.JFrame {
 
@@ -65,7 +67,6 @@ public class consulta extends javax.swing.JFrame {
         jTextFiel_BR4 = new JTextField.jTextFiel_BR();
         jTextFiel_BR5 = new JTextField.jTextFiel_BR();
         jTextFiel_BR1 = new JTextField.jTextFiel_BR();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,7 +77,6 @@ public class consulta extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("proyecto");
@@ -131,11 +131,6 @@ public class consulta extends javax.swing.JFrame {
         jLabel10.setText("Correo");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Antonio nariño", "Barrios Unidos", "Bosa", "Chapinero ", "Ciudad Bolivar", "Engativa Fontivón", "Kennedy", "La candelaria", "Los Mártires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristobal", "Santa Fe ", "Suba", "Sumapaz", "Teusaquillo", "Tunguelito", "Usaquen ", "Usme" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
@@ -184,11 +179,6 @@ public class consulta extends javax.swing.JFrame {
         jLabel13.setText("Problematica");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "salud", "economia", "seguridad" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(111, 115, 131));
@@ -242,10 +232,7 @@ public class consulta extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel_encuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFiel_BR1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel_encuestaLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel7)))
                     .addGroup(jPanel_encuestaLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel8))
@@ -300,37 +287,34 @@ public class consulta extends javax.swing.JFrame {
             .addGroup(jPanel_encuestaLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextFiel_BR1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
                 .addGap(6, 6, 6)
+                .addComponent(jTextFiel_BR2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel9)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFiel_BR3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel10)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFiel_BR4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel11)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFiel_BR5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel_encuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_encuestaLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(23, 23, 23)
-                        .addComponent(jTextFiel_BR1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFiel_BR2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel9)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFiel_BR3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel10)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFiel_BR4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel11)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFiel_BR5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel_encuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel_encuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel_encuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
@@ -379,7 +363,7 @@ public class consulta extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 60, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(250, 251, 233));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos localidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 169, 204))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos localidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(0, 169, 204))); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -450,13 +434,6 @@ public class consulta extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -472,10 +449,7 @@ public class consulta extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jButton7)
-                        .addGap(115, 115, 115))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(115, 115, 115)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -488,10 +462,8 @@ public class consulta extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                .addGap(40, 40, 40))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 680, 570));
@@ -599,8 +571,7 @@ public class consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-         //jButton2.setBackground(Color.decode("#E7E6E8"));
-         jButton2.setBackground(Color.decode("#A6A79B"));
+        jButton2.setBackground(Color.decode("#A6A79B"));
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
@@ -616,9 +587,6 @@ public class consulta extends javax.swing.JFrame {
         jComboBox1.setSelectedIndex(0);
         jComboBox2.setSelectedIndex(0);
         jLabel44.setText("");
-        jLabel3.setVisible(false);
-        jTextFiel_BR3.setVisible(true);
-        jTextFiel_BR1.setVisible(true);
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -679,21 +647,6 @@ public class consulta extends javax.swing.JFrame {
                 mysql.MySQL_connection();
                 Actualizar2 a = new Actualizar2(id);
                 a.setVisible(true);
-                
-            
-            
-            
-     //   int telefono = Integer.parseInt(jTextField3.getText());  
-     //   mysql.setNum(jLabel2.getText(),"Telefono",telefono);
-     //   mysql.setNum(jLabel2.getText(), "Localidad",this.localidad);
-     //   mysql.setNum(jLabel2.getText(), "Problema",this.problema);
-     //   JOptionPane.showMessageDialog(null, "Datos actualizados con exito");
-            
-            
-        
-      
- 
-       
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
@@ -704,129 +657,27 @@ public class consulta extends javax.swing.JFrame {
        jButton5.setBackground(Color.decode("#FFFFFF"));
     }//GEN-LAST:event_jButton5MouseExited
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-                
-        mysql.MySQL_connection("root", "proyecto", "");
-        mysql.setDato(jLabel3.getText(), "Nombre",jTextFiel_BR2.getText());
-        mysql.setDato(jLabel3.getText(), "Correo",jTextFiel_BR4.getText());
-        int telefono = Integer.parseInt(jTextFiel_BR5.getText());  
-        mysql.setNum(jLabel3.getText(),"Telefono",telefono);
-        mysql.setNum(jLabel3.getText(), "Localidad",this.Localidad);
-        mysql.setNum(jLabel3.getText(), "Problema",this.problema);
-       JOptionPane.showMessageDialog(null, "Datos actualizados con exito");
-                   
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
-        // TODO add your handling code here:
+       jButton7.setBackground(Color.decode("#A6A79B"));
     }//GEN-LAST:event_jButton7MouseEntered
 
     private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
-        // TODO add your handling code here:
+        jButton7.setBackground(Color.decode("#FFFFFF"));
     }//GEN-LAST:event_jButton7MouseExited
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-             
-        switch(jComboBox1.getSelectedIndex()){
-        
-            case 0 -> {
-                jLabel44.setBackground(Color.red);
-                jLabel44.setText("no deje campos vacios");
-            }case 1 -> {
-                num_localidad =15;
-                localidad = "Antonio nariño";
-            }case 2 -> {
-                num_localidad =12;
-                localidad = "Barrios unidos";
-            }case 3 -> {
-                num_localidad =7;
-                localidad = "Bosa";
-            }case 4 -> {
-                num_localidad =2;
-                localidad = "Chapinero";
-            }case 5 -> {
-                num_localidad =19;
-                localidad = "Ciudad Bolívar";
-            }case 6 -> {
-                num_localidad =10;
-                localidad = "Engativa";
-            }case 7 -> {
-                num_localidad =9;
-                localidad = "Fontibón";
-            }case 8 -> {
-                num_localidad =8;
-                localidad = "Kennedy";    
-            }case 9 -> {
-                num_localidad =17;
-                localidad = "La Candelaria";
-            }case 10 -> {
-                num_localidad =14;
-                localidad = "Los Mártires";
-            }case 11 -> {
-                num_localidad =16;
-                localidad = "Puente aranda";
-            }case 12 -> {
-                num_localidad =18;
-                localidad = "Rafael Uribe Uribe";
-            }case 13 -> {
-                num_localidad =4;
-                localidad = "San Cristobal";
-            }case 14 -> {
-                num_localidad =3;
-                localidad = "Santa Fe";
-            }case 15 -> {
-                num_localidad =11;
-                localidad = "Suba";
-            }case 16 -> {
-                num_localidad =20;
-                localidad = "Sumapaz";
-            }case 17 -> {
-                num_localidad =17;
-                localidad = "La Candelaria";
-            }case 18 -> {
-                num_localidad =13;
-                localidad = "Teusaquillo";
-            }case 19 -> {
-                num_localidad =6;
-                localidad = "Tunjuelito";
-            }case 20 -> {
-                num_localidad =1;
-                localidad = "Usaquen";
-            }case 21 -> {
-                num_localidad =5;
-                localidad = "Usme";
-            }
+        if(java.awt.Desktop.isDesktopSupported()){
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
             
+            if(desktop.isSupported(Desktop.Action.BROWSE)){
+               try{
+               java.net.URI uri = new java.net.URI("http://127.0.0.1/phpmyadmin/db_structure.php?server=1&db=proyecto");
+               desktop.browse(uri);
+               }catch(URISyntaxException | IOException ex){}
+            
+            }
         }
-        this.Localidad = num_localidad;
-    
-    
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-       switch(jComboBox1.getSelectedIndex()){
-        
-            case 0 -> {
-                jLabel44.setBackground(Color.red);
-                jLabel44.setText("no deje campos vacios");
-            }case 1 -> {
-                num_problematica=1;
-                problematica = "salud";
-            }case 2 -> {
-                num_problematica=2;
-                problematica = "economia";
-            }case 3 -> {
-               num_problematica=3;
-                problematica = "seguridad";
-            }   
-        }   
-        this.problema = num_problematica;
-        System.out.println("holla" + num_problematica);
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     
     
@@ -1073,7 +924,6 @@ public class consulta extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1085,7 +935,6 @@ public class consulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

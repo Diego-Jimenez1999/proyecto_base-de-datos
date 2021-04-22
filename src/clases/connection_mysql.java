@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import javax.swing.JOptionPane;
 
       
 /**
@@ -394,9 +395,11 @@ private static Connection conexion;
         st.setString(1,name);
         st.executeUpdate(); 
         System.out.println("se eliminno el dato "+name);
+        JOptionPane.showMessageDialog(null,"se eliminno el dato "+name);
     } catch(ClassNotFoundException | SQLException e) {
         System.out.println(e);
-        System.out.println("no se pudo eliminar el dato"+name);
+        System.out.println("no se pudo eliminar el dato "+name);
+        JOptionPane.showMessageDialog(null,"no se pudo eliminar el dato "+name);
     }
     
     
