@@ -34,6 +34,11 @@ public class consulta extends javax.swing.JFrame {
     public consulta() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+          mysql.MySQL_connection();  
+        
+      /*VerTabla v = new VerTabla();
+        v.tabla_encuesta(jTable1); */
     }
 
     /**
@@ -628,19 +633,6 @@ public class consulta extends javax.swing.JFrame {
         estado = 0;
     }//GEN-LAST:event_jTextFiel_BR1MouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         delete_data dt = new delete_data(this,true);
-        dt.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
-       jButton6.setBackground(Color.decode("#F97576"));
-    }//GEN-LAST:event_jButton6MouseEntered
-
-    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
-        jButton6.setBackground(Color.decode("#FFFFFF"));
-    }//GEN-LAST:event_jButton6MouseExited
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          
                String id = JOptionPane.showInputDialog(null,"Por favor ingrese la id de la encuesta a actualizar");
@@ -678,6 +670,19 @@ public class consulta extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        delete_data dt = new delete_data(this,true);
+        dt.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
+        jButton6.setBackground(Color.decode("#FFFFFF"));
+    }//GEN-LAST:event_jButton6MouseExited
+
+    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
+        jButton6.setBackground(Color.decode("#F97576"));
+    }//GEN-LAST:event_jButton6MouseEntered
 
     
     
