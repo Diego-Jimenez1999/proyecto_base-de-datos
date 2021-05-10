@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto_base_d_datos;
+import clases.Usuario;
 import clases.connection_mysql;
 import clases.VerTabla;
 import java.awt.Color;
@@ -11,6 +12,7 @@ import java.awt.Desktop;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.net.URISyntaxException;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Diego Alexander Gaviria
@@ -18,7 +20,8 @@ import java.net.URISyntaxException;
 public class consulta extends javax.swing.JFrame {
 
     connection_mysql mysql =new connection_mysql("root","","proyecto");
-    
+     Usuario use = new Usuario();
+    int iterador=0;
     int num_localidad;
     String localidad;
     
@@ -31,14 +34,43 @@ public class consulta extends javax.swing.JFrame {
     private int Localidad;
     private int problema;
     
+    //Datos del usuario
+    private String nombre;
+    private String apellido;
+    private String genero;
+    
     public consulta() {
         initComponents();
         this.setLocationRelativeTo(null);
         
-          mysql.MySQL_connection();  
+    }
+    
+        //contructor al ingresar con el login
+    public consulta(String ID, String password){
+        initComponents();
+        this.setLocationRelativeTo(null); //coloca el jframe en el centro de la pantalla
+       
+        //conectanda a la base de datos
+        mysql.MySQL_connection();
         
-      /*VerTabla v = new VerTabla();
-        v.tabla_encuesta(jTable1); */
+        use = mysql.getDt_usuario("usuarios", ID, password); //trallendo datos
+        //tomando datos
+        nombre = use.getNombre();
+        apellido = use.getApellido();
+        genero = use.getSexo();
+        
+        //inserta el nombre 
+        jLabel2.setText(nombre +" "+ apellido);
+        System.out.println(nombre +" "+ apellido);
+        
+        
+        //inserta la imagen dependiendo el genero
+        switch(genero){
+            
+            case "H"-> jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_M.png")));  
+            case "M"-> jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_F.png")));
+           
+        }   
     }
 
     /**
@@ -75,6 +107,7 @@ public class consulta extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -337,7 +370,17 @@ public class consulta extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(328, 50));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(111, 115, 131));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apagado.png"))); // NOI18N
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
+        jButton4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/encendido.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -348,19 +391,24 @@ public class consulta extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 833, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 169, 204));
@@ -464,7 +512,7 @@ public class consulta extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
@@ -672,7 +720,7 @@ public class consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        delete_data dt = new delete_data(this,true);
+        delete_data dt = new delete_data(this,true,iterador);
         dt.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -683,6 +731,49 @@ public class consulta extends javax.swing.JFrame {
     private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
         jButton6.setBackground(Color.decode("#F97576"));
     }//GEN-LAST:event_jButton6MouseEntered
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        iterador++;
+
+        switch(iterador){
+            case 1 -> {
+                System.out.println("Activo modo oscuro");
+                jButton4.setIcon(new ImageIcon(getClass().getResource("/img/encendido.png")));
+
+                jPanel1.setBackground(Color.decode("#212121"));
+                jPanel3.setBackground(Color.decode("#030303"));
+                jPanel2.setBackground(Color.decode("#030303"));
+                jPanel_encuesta.setBackground(Color.decode("#030303"));
+                 
+                //titulos
+                jLabel5.setForeground(Color.decode("#FAFBE9"));
+                jLabel6.setForeground(Color.decode("#FAFBE9"));
+                jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos localidades", 
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+                new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(250,251,233)));
+                 
+                break;
+            }
+            case 2 -> {
+                System.out.println("Desactivado modo oscuro");
+                jButton4.setIcon(new ImageIcon(getClass().getResource("/img/apagado.png")));
+                jButton4.setSelectedIcon(new ImageIcon(getClass().getResource("/img/apagado.png")));
+                jPanel1.setBackground(Color.decode("#E7E6E8"));
+                jPanel2.setBackground(Color.decode("#FAFBE9"));
+                jPanel3.setBackground(Color.decode("#FAFBE9"));
+                jPanel_encuesta.setBackground(Color.decode("#FAFBE9"));
+                
+                jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos localidades", 
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(0,169,204)));
+                
+                jLabel5.setForeground(Color.decode("#00A9CC"));
+                jLabel6.setForeground(Color.decode("#00A9CC"));
+   
+                iterador=0;
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     
     
@@ -929,6 +1020,7 @@ public class consulta extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;

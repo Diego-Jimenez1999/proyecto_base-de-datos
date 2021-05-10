@@ -9,15 +9,39 @@ import clases.connection_mysql;
 import java.awt.Color;
 
 
+
+
 public class delete_data extends javax.swing.JDialog {
 
     String tabla = null;  
     connection_mysql mysql =new connection_mysql("root","","proyecto");
     
+    String color_Lnegroo = "#000000";
+    String color_Lfantasta ="#818181";
+    
     
     public delete_data(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        
+    }
+    
+    public delete_data(java.awt.Frame parent, boolean modal,int m) {
+        super(parent, modal);
+        initComponents();
+        this.M_mensaje();
+        
+        jTextFiel_BR1.requestFocus();//INICIAR EL CURSOR SOBRE EL TEXTFIELD NOMBRE
+        jTextFiel_BR1.setCaretPosition(0);//INDICAR QUE EL CURSOR ESTARA EL PRINCIPIO DEL PLACEHOLDER 
+       
+        if(m==1){
+        jPanel1.setBackground(Color.decode("#212121"));
+        jLabel6.setForeground(Color.decode("#FAFBE9"));
+         jRadioButton1.setForeground(Color.decode("#6F7383"));
+                jRadioButton2.setForeground(Color.decode("#6F7383"));
+                jRadioButton3.setForeground(Color.decode("#6F7383"));
+        }
     }
 
     delete_data() {
@@ -53,6 +77,11 @@ public class delete_data extends javax.swing.JDialog {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -111,7 +140,7 @@ public class delete_data extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 100, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 100, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -125,7 +154,18 @@ public class delete_data extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 20, 20));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 20, 20));
+
+        jTextFiel_BR1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFiel_BR1FocusLost(evt);
+            }
+        });
+        jTextFiel_BR1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFiel_BR1MouseClicked(evt);
+            }
+        });
         jPanel1.add(jTextFiel_BR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 121, 435, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,6 +218,38 @@ public class delete_data extends javax.swing.JDialog {
         jButton1.setBackground(Color.decode("#FFFFFF"));
     }//GEN-LAST:event_jButton1MouseExited
 
+    private void jTextFiel_BR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFiel_BR1MouseClicked
+        this.B_mensaje();
+    }//GEN-LAST:event_jTextFiel_BR1MouseClicked
+
+    private void jTextFiel_BR1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFiel_BR1FocusLost
+      this.M_mensaje();
+    }//GEN-LAST:event_jTextFiel_BR1FocusLost
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+     this.M_mensaje();
+     jTextFiel_BR1.requestFocus();//INICIAR EL CURSOR SOBRE EL TEXTFIELD NOMBRE
+        jTextFiel_BR1.setCaretPosition(0);//INDICAR QUE EL CURSOR ESTARA EL PRINCIPIO DEL PLACEHOLDER 
+    }//GEN-LAST:event_jPanel1MouseClicked
+     
+    
+     public void M_mensaje( ){
+         if(jTextFiel_BR1.getText().length() == 0){
+           
+             jTextFiel_BR1.setForeground(Color.decode(color_Lfantasta));
+            jTextFiel_BR1.setText("Ingrese ID");
+        }
+    }
+     
+       public void B_mensaje(){
+        String l;
+        if(jTextFiel_BR1.getText().length() != 0){
+            jTextFiel_BR1.setText("");
+            jTextFiel_BR1.setForeground(Color.decode(color_Lnegroo));
+        } 
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

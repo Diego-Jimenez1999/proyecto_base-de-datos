@@ -464,5 +464,35 @@ private static Connection conexion;
         }catch (SQLException ex){
             System.out.println(ex);
         }
+    }
+
+       public Usuario getDt_usuario(String tabla,String ID,String Password){
+      
+   Usuario usuario = null; // El usuario no existe en esta base de datos
+        try {
+            String Query = "SELECT * FROM " + tabla;
+            Statement st = conexion.createStatement();
+            ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+ 
+            while (resultSet.next()) {
+                if(resultSet.getString("ID").equals(ID) && resultSet.getString("Contraseña").equals(Password)){
+                    // El usuario existe en esta base de datos
+                    usuario = new Usuario();
+                    usuario.setID(resultSet.getString("ID"));
+                    usuario.setPassword(resultSet.getString("Contraseña"));
+                    usuario.setNombre(resultSet.getString("Nombre"));
+                    usuario.setApellido(resultSet.getString("Apellido"));
+                  //  usuario.setEdad(resultSet.getString("Edad"));
+                    usuario.setSexo(resultSet.getString("genero"));
+                    break;
+                }
+            }
+        }catch(SQLException ex){
+               usuario=null;
+                System.out.println(usuario);
+                System.err.println("No se pudo traer el usuario"+ex);
+            }
+        return usuario;
     }    
 } 
