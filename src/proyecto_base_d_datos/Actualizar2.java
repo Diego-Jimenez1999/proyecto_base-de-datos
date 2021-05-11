@@ -28,6 +28,28 @@ private int problema;
         jComboBox2.setSelectedItem(mostrarProblema(c_MysQl.getDato(id, "Problema")));
         c_MysQl.cerrar_connection();
     }
+    
+    
+     public Actualizar2(String id,int n){
+     
+        initComponents();
+        setLocationRelativeTo(null);
+        jLabel2.setText(id);
+        c_MysQl.MySQL_connection("root", "proyecto", "");
+        jTextField1.setText(c_MysQl.getDato(id, "Nombre"));
+        jTextField2.setText(c_MysQl.getDato(id, "Correo"));
+        jTextField3.setText(c_MysQl.getDato(id, "Telefono"));
+        jComboBox1.setSelectedItem(mostrarlocalidad(c_MysQl.getDato(id, "Localidad")));
+        jComboBox2.setSelectedItem(mostrarProblema(c_MysQl.getDato(id, "Problema")));
+        c_MysQl.cerrar_connection();
+        
+        if(n==1){
+          jPanel1.setBackground(Color.decode("#212121"));
+          jLabel8.setForeground(Color.decode("#FAFBE9"));
+        
+        
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,10 +203,10 @@ private int problema;
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(163, 163, 163)
                                 .addComponent(jButton1)))

@@ -685,7 +685,7 @@ public class consulta extends javax.swing.JFrame {
          
                String id = JOptionPane.showInputDialog(null,"Por favor ingrese la id de la encuesta a actualizar");
                 mysql.MySQL_connection();
-                Actualizar2 a = new Actualizar2(id);
+                Actualizar2 a = new Actualizar2(id,iterador);
                 a.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
