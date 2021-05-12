@@ -41,9 +41,33 @@ public class inicio extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
 
-        /* javax.swing.ImageIcon imagen = new javax.swing.ImageIcon(getClass().getResource("/img/fondo_2.jpg"));
-        javax.swing.Icon icono = new javax.swing.ImageIcon(imagen.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), java.awt.Image.SCALE_DEFAULT));
-        jLabel9.setIcon(icono);*/
+        jPanel1.setBackground(Color.decode("#212121"));
+        jPanel2.setBackground(Color.decode("#030303"));
+        jpanel1.setBackground(Color.decode("#030303"));
+        jpanel2.setBackground(Color.decode("#212121"));
+        jLabel5.setForeground(Color.decode("#FAFBE9"));
+        jLabel1.setForeground(Color.decode("#FAFBE9"));
+        jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/cabeza_N.png")));
+    }
+
+    public inicio(int n) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+
+        this.M_mensaje();
+        this.iniciarJPasswordField();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
+        jTextFiel_BR1.setCaretPosition(0);
+
+        if (n == 1) {
+            jPanel1.setBackground(Color.decode("#212121"));
+            jPanel2.setBackground(Color.decode("#030303"));
+            jpanel1.setBackground(Color.decode("#030303"));
+            jpanel2.setBackground(Color.decode("#212121"));
+            jLabel5.setForeground(Color.decode("#FAFBE9"));
+            jLabel1.setForeground(Color.decode("#FAFBE9"));
+            jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/cabeza_N.png")));
+        }
     }
 
     //guarda el nombre y numero de la localidad del jpanel usuario
@@ -173,7 +197,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono@.png"))); // NOI18N
         jpanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 169, 204));
         jLabel1.setText("Iniciar sesión");
 
@@ -196,14 +220,14 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(jpanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(92, 92, 92))
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpanel1Layout.setVerticalGroup(
             jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +247,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(250, 251, 233));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 169, 204));
         jLabel5.setText("Encuesta");
 
@@ -553,39 +577,38 @@ public class inicio extends javax.swing.JFrame {
         this.seleccionar_problematica();
 
         if (ID.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
-            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
             estado = 1;
         }
 
         if (Nombre.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
-            jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
-            
+            jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+
             estado = 1;
         }
 
         if (Correo.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
-            jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
-           
+            jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+
             estado = 1;
         }
 
         if (Telefono.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
-            jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
-           
+            jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+
             estado = 1;
         }
-         
-        if(estado==1){
-          JOptionPane.showMessageDialog(null, "No deje campos vacios");
+
+        if (estado == 1) {
+            JOptionPane.showMessageDialog(null, "No deje campos vacios");
         }
-        
-        
+
         if (estado == 0) {
             int numero = Integer.parseInt(Telefono);
 
             int estatus = mysql.Insert_encuestas("encuestas", Nombre, Correo, numero, num_localidad, problematica, ID);
             if (estatus == 1) {
-                JOptionPane.showMessageDialog(null,"Seguardo el dato con exito");
+                JOptionPane.showMessageDialog(null, "Seguardo el dato con exito");
                 jTextField1.setText("");
                 jTextField2.setText("");
                 jTextField3.setText("");
@@ -594,7 +617,7 @@ public class inicio extends javax.swing.JFrame {
                 jComboBox2.setSelectedIndex(0);
 
             } else {
-                JOptionPane.showMessageDialog(null,"El Dato no se Guardo");
+                JOptionPane.showMessageDialog(null, "El Dato no se Guardo");
             }
 
         }
@@ -656,11 +679,11 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1FocusGained
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
     }//GEN-LAST:event_jTextField1FocusLost
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        estado=0;
+        estado = 0;
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
@@ -668,26 +691,26 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-      
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
     }//GEN-LAST:event_jTextField2FocusLost
 
     private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-        estado=0;
+        estado = 0;
     }//GEN-LAST:event_jTextField2MouseClicked
 
     private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
-       
+
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
     }//GEN-LAST:event_jTextField3FocusGained
 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
     }//GEN-LAST:event_jTextField3FocusLost
 
     private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
-        estado=0;
+        estado = 0;
     }//GEN-LAST:event_jTextField3MouseClicked
 
     private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
@@ -695,20 +718,20 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4FocusGained
 
     private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
-        
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
     }//GEN-LAST:event_jTextField4FocusLost
 
     private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
-        estado=0;
+        estado = 0;
     }//GEN-LAST:event_jTextField4MouseClicked
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
-         estado = 0;
+        estado = 0;
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
-         estado = 0;
+        estado = 0;
     }//GEN-LAST:event_jComboBox2MouseClicked
 
     public void M_mensaje() {
@@ -760,7 +783,7 @@ public class inicio extends javax.swing.JFrame {
         switch (jComboBox1.getSelectedIndex()) {
 
             case 0 -> {
-                 estado = 1;
+                estado = 1;
             }
             case 1 -> {
                 num_localidad = 15;
@@ -855,7 +878,7 @@ public class inicio extends javax.swing.JFrame {
 
         switch (jComboBox2.getSelectedIndex()) {//seleccion año
             case 0 ->
-                 estado = 1;
+                estado = 1;
             case 1 ->
                 problematica = 1;
             case 2 ->
