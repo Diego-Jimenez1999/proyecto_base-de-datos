@@ -14,6 +14,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,7 @@ public class inicio extends javax.swing.JFrame {
     AnimationClass animacion = new AnimationClass();
 
     int iterador = 0;
+    int estado = 0;
     String color_Lnegroo = "#000000";
     String color_Lfantasta = "#818181";
     connection_mysql mysql = new connection_mysql("root", "", "proyecto");
@@ -38,11 +40,10 @@ public class inicio extends javax.swing.JFrame {
         this.iniciarJPasswordField();
         this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
-        
-        
-        
-         
 
+        /* javax.swing.ImageIcon imagen = new javax.swing.ImageIcon(getClass().getResource("/img/fondo_2.jpg"));
+        javax.swing.Icon icono = new javax.swing.ImageIcon(imagen.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), java.awt.Image.SCALE_DEFAULT));
+        jLabel9.setIcon(icono);*/
     }
 
     //guarda el nombre y numero de la localidad del jpanel usuario
@@ -103,7 +104,7 @@ public class inicio extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(231, 230, 232));
         jPanel1.setForeground(new java.awt.Color(111, 115, 131));
         jPanel1.setPreferredSize(new java.awt.Dimension(1064, 690));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,12 +256,40 @@ public class inicio extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 169, 204));
         jLabel5.setText("Encuesta");
 
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(111, 115, 131));
         jLabel6.setText("Documento de Identidad");
 
         jSeparator1.setBackground(new java.awt.Color(0, 169, 204));
         jSeparator1.setForeground(new java.awt.Color(0, 169, 204));
+
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(111, 115, 131));
@@ -273,6 +302,20 @@ public class inicio extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(111, 115, 131));
         jLabel8.setText("Apellido");
 
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
+        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField3MouseClicked(evt);
+            }
+        });
+
         jSeparator3.setBackground(new java.awt.Color(0, 169, 204));
         jSeparator3.setForeground(new java.awt.Color(0, 169, 204));
 
@@ -280,17 +323,55 @@ public class inicio extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(111, 115, 131));
         jLabel10.setText("Telefono");
 
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
+        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField4MouseClicked(evt);
+            }
+        });
+
         jSeparator5.setBackground(new java.awt.Color(0, 169, 204));
         jSeparator5.setForeground(new java.awt.Color(0, 169, 204));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Antonio nariño", "Barrios Unidos", "Bosa", "Chapinero ", "Ciudad Bolivar", "Engativa Fontivón", "Kennedy", "La candelaria", "Los Mártires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristobal", "Santa Fe ", "Suba", "Sumapaz", "Teusaquillo", "Tunguelito", "Usaquen ", "Usme" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "salud", "economia", "seguridad" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(113, 20));
+        jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox2MouseClicked(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Guardar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton2MouseReleased(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -318,28 +399,33 @@ public class inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel11)
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel12))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(73, 73, 73)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,22 +434,14 @@ public class inicio extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel7)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(jLabel11))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(15, 15, 15)))))
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField1))
+                        .addGap(6, 6, 6)))
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -371,9 +449,9 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel5)
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(11, 11, 11)
+                .addGap(10, 10, 10)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,22 +467,22 @@ public class inicio extends javax.swing.JFrame {
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
                 .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 400, 620));
@@ -414,7 +492,6 @@ public class inicio extends javax.swing.JFrame {
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/WWD2020_Banner2-V01_FB-LI-1200x628-SPA.jpg"))); // NOI18N
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 590, 620));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1064, 750));
@@ -498,8 +575,8 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        mysql.MySQL_connection("root", "proyecto","");
-        
+        mysql.MySQL_connection("root", "proyecto", "");
+
         String ID = jTextField1.getText();
         String Nombre = jTextField2.getText();
         String Correo = jTextField3.getText();
@@ -507,34 +584,165 @@ public class inicio extends javax.swing.JFrame {
 
         this.seleccionar_localidad();
         this.seleccionar_problematica();
-        
-        int numero = Integer.parseInt(Telefono);
-        
-        int estatus = mysql.Insert_encuestas("encuestas", Nombre, Correo, numero, num_localidad, problematica, ID);
-        if (estatus == 1) {
-            JOptionPane.showInputDialog("Seguardo el dato con exito");
 
-        } else {
-            JOptionPane.showInputDialog("El Dato no se Guardo");
+        if (ID.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+            jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
+            estado = 1;
+        }
+
+        if (Nombre.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+            jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
+            
+            estado = 1;
+        }
+
+        if (Correo.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+            jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
+           
+            estado = 1;
+        }
+
+        if (Telefono.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+            jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51),2));
+           
+            estado = 1;
+        }
+         
+        if(estado==1){
+          JOptionPane.showMessageDialog(null, "No deje campos vacios");
+        }
+        
+        
+        if (estado == 0) {
+            int numero = Integer.parseInt(Telefono);
+
+            int estatus = mysql.Insert_encuestas("encuestas", Nombre, Correo, numero, num_localidad, problematica, ID);
+            if (estatus == 1) {
+                JOptionPane.showMessageDialog(null,"Seguardo el dato con exito");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jComboBox1.setSelectedIndex(0);
+                jComboBox2.setSelectedIndex(0);
+
+            } else {
+                JOptionPane.showMessageDialog(null,"El Dato no se Guardo");
+            }
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-        
-        if(this.getExtendedState() == MAXIMIZED_BOTH ){
-         jLabel9.setBounds(30, 70, 730, 620);
-       //  jLabel9.setIcon(new ImageIcon(getClass().getResource("/img/fondo_2.jpg")));
-          
-         jPanel1.setBounds(0, 0, 1599, 750);
-         jPanel2.setBounds(940, 70,400,620);
-         jpanel1.setLocation(550, -440);
-         jLabel9.setBounds(30, 70, 730, 620);
-         
-         
-        
-        
+
+        if (this.getExtendedState() == MAXIMIZED_BOTH) {
+            //  jLabel9.setBounds(30, 70, 730, 620);
+            // jPanel2.setBounds(940, 70, 400, 620);
+            //jLabel9.setIcon(new ImageIcon(getClass().getResource("/img/fondo_2.jpg")));
+
+            jPanel1.setBounds(0, 0, 1599, 750);
+            jPanel2.setBounds(890, 70, 450, 620);
+            jpanel1.setLocation(550, -440);
+            jLabel9.setBounds(30, 70, 830, 620);
+
+            jLabel5.setLocation(156, 20);
+            jTextField1.setBounds(50, 108, 350, 35);
+            jTextField2.setBounds(50, 193, 350, 35);
+            jTextField3.setBounds(50, 285, 350, 35);
+            jTextField4.setBounds(50, 377, 350, 35);
+            jLabel6.setLocation(50, 80);
+            jLabel7.setLocation(50, 170);
+            jLabel8.setLocation(50, 262);
+            jLabel10.setLocation(50, 350);
+            jLabel11.setLocation(120, 451);
+            jLabel12.setLocation(257, 451);
+            jSeparator1.setBounds(38, 154, 373, 10);
+            jSeparator2.setBounds(38, 246, 373, 10);
+            jSeparator3.setBounds(38, 338, 373, 10);
+            jSeparator5.setBounds(38, 430, 373, 10);
+            jComboBox2.setLocation(245, 479);
+            jComboBox1.setLocation(100, 479);
+            jButton2.setLocation(190, 550);
+
         }
+
     }//GEN-LAST:event_formComponentResized
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        jButton2.setBackground(Color.decode("#4EAD43"));
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
+        jButton2.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jButton2MouseReleased
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        jButton2.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        jButton2.setBackground(Color.decode("#4EAD43"));
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        estado=0;
+    }//GEN-LAST:event_jTextField1MouseClicked
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+      
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+        estado=0;
+    }//GEN-LAST:event_jTextField2MouseClicked
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+       
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
+        estado=0;
+    }//GEN-LAST:event_jTextField3MouseClicked
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171,173, 179)));
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+        estado=0;
+    }//GEN-LAST:event_jTextField4MouseClicked
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+         estado = 0;
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
+         estado = 0;
+    }//GEN-LAST:event_jComboBox2MouseClicked
 
     public void M_mensaje() {
         if (jTextFiel_BR1.getText().length() == 0) {
@@ -585,7 +793,7 @@ public class inicio extends javax.swing.JFrame {
         switch (jComboBox1.getSelectedIndex()) {
 
             case 0 -> {
-                JOptionPane.showInputDialog(null, "Seleccione una Localidad");
+                 estado = 1;
             }
             case 1 -> {
                 num_localidad = 15;
@@ -680,7 +888,7 @@ public class inicio extends javax.swing.JFrame {
 
         switch (jComboBox2.getSelectedIndex()) {//seleccion año
             case 0 ->
-                JOptionPane.showInputDialog(null, "Seleccione una Problematica");
+                 estado = 1;
             case 1 ->
                 problematica = 1;
             case 2 ->
