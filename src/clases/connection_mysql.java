@@ -204,6 +204,7 @@ private static Connection conexion;
         }catch (SQLException ex){
             System.out.println(ex);
         }
+        System.out.println("el nombre del usuarios es: "+nombre);
         return nombre;
     }
     //trae el apellido del usuario

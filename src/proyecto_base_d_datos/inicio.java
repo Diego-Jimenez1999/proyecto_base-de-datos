@@ -9,9 +9,12 @@ import Animaton_componentes.AnimationClass;
 import clases.Usuario;
 import clases.connection_mysql;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,9 +36,19 @@ public class inicio extends javax.swing.JFrame {
 
         this.M_mensaje();
         this.iniciarJPasswordField();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
+        
+        
+        
+         
 
     }
+
+    //guarda el nombre y numero de la localidad del jpanel usuario
+    String localidad;
+    int num_localidad;
+    int problematica;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,12 +71,41 @@ public class inicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1064, 745));
         setPreferredSize(new java.awt.Dimension(1064, 745));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(250, 251, 233));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setForeground(new java.awt.Color(111, 115, 131));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1064, 690));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -71,7 +113,7 @@ public class inicio extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpanel1.setBackground(new java.awt.Color(231, 230, 232));
+        jpanel1.setBackground(new java.awt.Color(250, 251, 233));
         jpanel1.setPreferredSize(new java.awt.Dimension(333, 467));
 
         jSeparator6.setBackground(new java.awt.Color(111, 115, 131));
@@ -207,6 +249,174 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel1.add(jpanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, -440, 333, 467));
 
+        jPanel2.setBackground(new java.awt.Color(250, 251, 233));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 169, 204));
+        jLabel5.setText("Encuesta");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel6.setText("Documento de Identidad");
+
+        jSeparator1.setBackground(new java.awt.Color(0, 169, 204));
+        jSeparator1.setForeground(new java.awt.Color(0, 169, 204));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel7.setText("Nombre");
+
+        jSeparator2.setBackground(new java.awt.Color(0, 169, 204));
+        jSeparator2.setForeground(new java.awt.Color(0, 169, 204));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel8.setText("Apellido");
+
+        jSeparator3.setBackground(new java.awt.Color(0, 169, 204));
+        jSeparator3.setForeground(new java.awt.Color(0, 169, 204));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel10.setText("Telefono");
+
+        jSeparator5.setBackground(new java.awt.Color(0, 169, 204));
+        jSeparator5.setForeground(new java.awt.Color(0, 169, 204));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Antonio nariño", "Barrios Unidos", "Bosa", "Chapinero ", "Ciudad Bolivar", "Engativa Fontivón", "Kennedy", "La candelaria", "Los Mártires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristobal", "Santa Fe ", "Suba", "Sumapaz", "Teusaquillo", "Tunguelito", "Usaquen ", "Usme" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "salud", "economia", "seguridad" }));
+        jComboBox2.setPreferredSize(new java.awt.Dimension(113, 20));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel11.setText("Localidad");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel12.setText("Problematica");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel11))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(15, 15, 15)))))
+                .addGap(29, 29, 29))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel5)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel6)
+                .addGap(11, 11, 11)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel7)
+                .addGap(6, 6, 6)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel8)
+                .addGap(6, 6, 6)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 400, 620));
+
+        jSeparator4.setBackground(new java.awt.Color(0, 169, 204));
+        jSeparator4.setForeground(new java.awt.Color(0, 169, 204));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/WWD2020_Banner2-V01_FB-LI-1200x628-SPA.jpg"))); // NOI18N
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 590, 620));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1064, 750));
 
         pack();
@@ -222,8 +432,8 @@ public class inicio extends javax.swing.JFrame {
         } else {
             animacion.jPanelYArriba(-10, -440, 5, 10, jpanel1);
             System.out.println("jpanel Arriba");
-           // jLabel3.setText("Arriba");
-           jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/imagen2.png")));
+            // jLabel3.setText("Arriba");
+            jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/imagen2.png")));
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             iterador = 0;
         }
@@ -287,6 +497,45 @@ public class inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        mysql.MySQL_connection("root", "proyecto","");
+        
+        String ID = jTextField1.getText();
+        String Nombre = jTextField2.getText();
+        String Correo = jTextField3.getText();
+        String Telefono = jTextField4.getText();
+
+        this.seleccionar_localidad();
+        this.seleccionar_problematica();
+        
+        int numero = Integer.parseInt(Telefono);
+        
+        int estatus = mysql.Insert_encuestas("encuestas", Nombre, Correo, numero, num_localidad, problematica, ID);
+        if (estatus == 1) {
+            JOptionPane.showInputDialog("Seguardo el dato con exito");
+
+        } else {
+            JOptionPane.showInputDialog("El Dato no se Guardo");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        
+        if(this.getExtendedState() == MAXIMIZED_BOTH ){
+         jLabel9.setBounds(30, 70, 730, 620);
+       //  jLabel9.setIcon(new ImageIcon(getClass().getResource("/img/fondo_2.jpg")));
+          
+         jPanel1.setBounds(0, 0, 1599, 750);
+         jPanel2.setBounds(940, 70,400,620);
+         jpanel1.setLocation(550, -440);
+         jLabel9.setBounds(30, 70, 730, 620);
+         
+         
+        
+        
+        }
+    }//GEN-LAST:event_formComponentResized
+
     public void M_mensaje() {
         if (jTextFiel_BR1.getText().length() == 0) {
 
@@ -310,8 +559,7 @@ public class inicio extends javax.swing.JFrame {
             jTextFiel_BR1.setForeground(Color.decode(color_Lnegroo));
         }
     }
-    
-    
+
     public void B_mensajee() {
         String l;
         if (jPasswordRound_BD1.getText().length() != 0) {
@@ -330,6 +578,116 @@ public class inicio extends javax.swing.JFrame {
 
         }
 
+    }
+
+    private void seleccionar_localidad() {
+
+        switch (jComboBox1.getSelectedIndex()) {
+
+            case 0 -> {
+                JOptionPane.showInputDialog(null, "Seleccione una Localidad");
+            }
+            case 1 -> {
+                num_localidad = 15;
+                localidad = "Antonio nariño";
+            }
+            case 2 -> {
+                num_localidad = 12;
+                localidad = "Barrios unidos";
+            }
+            case 3 -> {
+                num_localidad = 7;
+                localidad = "Bosa";
+            }
+            case 4 -> {
+                num_localidad = 2;
+                localidad = "Chapinero";
+            }
+            case 5 -> {
+                num_localidad = 19;
+                localidad = "Ciudad Bolívar";
+            }
+            case 6 -> {
+                num_localidad = 10;
+                localidad = "Engativa";
+            }
+            case 7 -> {
+                num_localidad = 9;
+                localidad = "Fontibón";
+            }
+            case 8 -> {
+                num_localidad = 8;
+                localidad = "Kennedy";
+            }
+            case 9 -> {
+                num_localidad = 17;
+                localidad = "La Candelaria";
+            }
+            case 10 -> {
+                num_localidad = 14;
+                localidad = "Los Mártires";
+            }
+            case 11 -> {
+                num_localidad = 16;
+                localidad = "Puente aranda";
+            }
+            case 12 -> {
+                num_localidad = 18;
+                localidad = "Rafael Uribe Uribe";
+            }
+            case 13 -> {
+                num_localidad = 4;
+                localidad = "San Cristobal";
+            }
+            case 14 -> {
+                num_localidad = 3;
+                localidad = "Santa Fe";
+            }
+            case 15 -> {
+                num_localidad = 11;
+                localidad = "Suba";
+            }
+            case 16 -> {
+                num_localidad = 20;
+                localidad = "Sumapaz";
+            }
+            case 17 -> {
+                num_localidad = 17;
+                localidad = "La Candelaria";
+            }
+            case 18 -> {
+                num_localidad = 13;
+                localidad = "Teusaquillo";
+            }
+            case 19 -> {
+                num_localidad = 6;
+                localidad = "Tunjuelito";
+            }
+            case 20 -> {
+                num_localidad = 1;
+                localidad = "Usaquen";
+            }
+            case 21 -> {
+                num_localidad = 5;
+                localidad = "Usme";
+            }
+
+        }
+
+    }
+
+    private void seleccionar_problematica() {
+
+        switch (jComboBox2.getSelectedIndex()) {//seleccion año
+            case 0 ->
+                JOptionPane.showInputDialog(null, "Seleccione una Problematica");
+            case 1 ->
+                problematica = 1;
+            case 2 ->
+                problematica = 2;
+            case 3 ->
+                problematica = 3;
+        }
     }
 
     /**
@@ -369,15 +727,36 @@ public class inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private JPassword.JPasswordRound_BD jPasswordRound_BD1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private JTextField.jTextFiel_BR jTextFiel_BR1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private jpanel.Jpanel jpanel1;
     private jpanel.Jpanel jpanel2;
     // End of variables declaration//GEN-END:variables
