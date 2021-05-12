@@ -46,6 +46,7 @@ private int problema;
         if(n==1){
           jPanel1.setBackground(Color.decode("#212121"));
           jLabel8.setForeground(Color.decode("#FAFBE9"));
+          jLabel2.setForeground(new Color(255,255,255));
         
         
         }
