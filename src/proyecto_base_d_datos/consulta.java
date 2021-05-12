@@ -473,7 +473,7 @@ public class consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        inicio i = new inicio();
+        inicio i = new inicio(iterador);
         this. setVisible(false);
         i.setVisible(true);
         mysql.cerrar_connection();
