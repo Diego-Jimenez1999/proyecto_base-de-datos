@@ -41,13 +41,13 @@ public class inicio extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
 
-        jPanel1.setBackground(Color.decode("#212121"));
+        /*jPanel1.setBackground(Color.decode("#212121"));
         jPanel2.setBackground(Color.decode("#030303"));
         jpanel1.setBackground(Color.decode("#030303"));
         jpanel2.setBackground(Color.decode("#212121"));
         jLabel5.setForeground(Color.decode("#FAFBE9"));
         jLabel1.setForeground(Color.decode("#FAFBE9"));
-        jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/cabeza_N.png")));
+        jLabel3.setIcon(new ImageIcon(getClass().getResource("/img/cabeza_N.png")));*/
     }
 
     public inicio(int n) {
