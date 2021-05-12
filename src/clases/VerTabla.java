@@ -175,7 +175,7 @@ public class VerTabla {
      
         DefaultTableModel dt = new DefaultTableModel();//
         //nombre de la columna
-        dt.addColumn("ID");
+        dt.addColumn("Cedula");
         dt.addColumn("Nombre");
         dt.addColumn("Correo");
         dt.addColumn("Telefono");
