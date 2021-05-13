@@ -44,12 +44,13 @@ public class consulta extends javax.swing.JFrame {
     public consulta() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
     }
 
     //contructor al ingresar con el login
     public consulta(String ID, String password) {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         this.setLocationRelativeTo(null); //coloca el jframe en el centro de la pantalla
 
         //conectanda a la base de datos
@@ -58,19 +59,20 @@ public class consulta extends javax.swing.JFrame {
         use = mysql.getDt_usuario("usuarios", ID, password); //trallendo datos
         //tomando datos
        
-        nombre =  mysql.getNombre(ID);
-        genero =  mysql.getSexo(ID);
+        nombre = use.getNombre(); 
+        apellido = use.getApellido();
+        genero = use.getSexo();
 
         //inserta el nombre 
-        jLabel2.setText(nombre);
-        System.out.println(nombre);
-
+        jLabel2.setText(nombre + " " + apellido);
+        System.out.println(nombre + " " + apellido);
+         System.out.println(genero);
         //inserta la imagen dependiendo el genero
         switch (genero) {
 
             case "H" ->
                 jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_M.png")));
-            case "M" ->
+            case "F" ->
                 jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_F.png")));
 
         }
@@ -101,7 +103,7 @@ public class consulta extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("proyecto");
+        setTitle("Control de Datos");
         setPreferredSize(new java.awt.Dimension(1230, 745));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -159,7 +161,7 @@ public class consulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8)
                 .addGap(27, 27, 27)
@@ -442,9 +444,10 @@ public class consulta extends javax.swing.JFrame {
                 jPanel1.setBackground(Color.decode("#212121"));
                 jPanel3.setBackground(Color.decode("#030303"));
                 jPanel2.setBackground(Color.decode("#030303"));
-               
+                
                 //titulos
                 jLabel5.setForeground(Color.decode("#FAFBE9"));
+                jLabel2.setForeground(Color.decode("#FAFBE9"));
                
                 jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos localidades",
                         javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
@@ -465,6 +468,7 @@ public class consulta extends javax.swing.JFrame {
                         javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(0, 169, 204)));
 
                 jLabel5.setForeground(Color.decode("#00A9CC"));
+                jLabel2.setForeground(Color.decode("#000000"));
              
 
                 iterador = 0;

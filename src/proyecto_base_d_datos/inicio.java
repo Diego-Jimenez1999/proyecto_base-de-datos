@@ -117,10 +117,13 @@ public class inicio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Proyecto Base de Datos");
         setMinimumSize(new java.awt.Dimension(1064, 745));
         setPreferredSize(new java.awt.Dimension(1064, 745));
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -426,6 +429,24 @@ public class inicio extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(111, 115, 131));
         jLabel12.setText("Problematica");
 
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
+        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField5MouseClicked(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(111, 115, 131));
+        jLabel15.setText("Apellido");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -470,19 +491,25 @@ public class inicio extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(29, 29, 29))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jTextField1))
-                        .addGap(6, 6, 6)))
-                .addGap(29, 29, 29))
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,9 +523,13 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(jLabel7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel15))
                 .addGap(6, 6, 6)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -592,7 +623,7 @@ public class inicio extends javax.swing.JFrame {
                 jTextFiel_BR1.setText("");
                 jPasswordRound_BD1.setText("");
 
-                consulta pr = new consulta();
+                consulta pr = new consulta(ID,password);
                 this.setVisible(false);
                 pr.setVisible(true);
 
@@ -615,6 +646,7 @@ public class inicio extends javax.swing.JFrame {
 
         String ID = jTextField1.getText();
         String Nombre = jTextField2.getText();
+        String Apellido = jTextField5.getText();
         String Correo = jTextField3.getText();
         String Telefono = jTextField4.getText();
 
@@ -643,6 +675,12 @@ public class inicio extends javax.swing.JFrame {
 
             estado = 1;
         }
+        
+         if (Apellido.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+            jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
+
+            estado = 1;
+        }
 
         if (estado == 1) {
             JOptionPane.showMessageDialog(null, "No deje campos vacios");
@@ -650,8 +688,8 @@ public class inicio extends javax.swing.JFrame {
 
         if (estado == 0) {
             int numero = Integer.parseInt(Telefono);
-
-            int estatus = mysql.Insert_encuestas("encuestas", Nombre, Correo, numero, num_localidad, problematica, ID);
+            String N_usuario = Nombre + " " + Apellido;
+            int estatus = mysql.Insert_encuestas("encuestas",N_usuario, Correo, numero, num_localidad, problematica, ID);
             if (estatus == 1) {
                 JOptionPane.showMessageDialog(null, "Seguardo el dato con exito");
                 jTextField1.setText("");
@@ -682,11 +720,13 @@ public class inicio extends javax.swing.JFrame {
 
             jLabel5.setLocation(156, 20);
             jTextField1.setBounds(50, 108, 350, 35);
-            jTextField2.setBounds(50, 193, 350, 35);
+            jTextField2.setBounds(50, 193, 169, 35);
+            jTextField5.setBounds(240, 193, 169, 35);
             jTextField3.setBounds(50, 285, 350, 35);
             jTextField4.setBounds(50, 377, 350, 35);
             jLabel6.setLocation(50, 80);
             jLabel7.setLocation(50, 170);
+            jLabel15.setLocation(240, 170);
             jLabel8.setLocation(50, 262);
             jLabel10.setLocation(50, 350);
             jLabel11.setLocation(120, 451);
@@ -778,6 +818,18 @@ public class inicio extends javax.swing.JFrame {
     private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
         estado = 0;
     }//GEN-LAST:event_jComboBox2MouseClicked
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204)));
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
+       estado = 0;
+    }//GEN-LAST:event_jTextField5MouseClicked
 
     public void M_mensaje() {
         if (jTextFiel_BR1.getText().length() == 0) {
@@ -979,6 +1031,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1002,6 +1055,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private jpanel.Jpanel jpanel1;
     private jpanel.Jpanel jpanel2;
     // End of variables declaration//GEN-END:variables
