@@ -167,6 +167,14 @@ public class inicio extends javax.swing.JFrame {
                 jTextFiel_BR1MouseClicked(evt);
             }
         });
+        jTextFiel_BR1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFiel_BR1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFiel_BR1KeyTyped(evt);
+            }
+        });
 
         jPasswordRound_BD1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -830,6 +838,19 @@ public class inicio extends javax.swing.JFrame {
     private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
        estado = 0;
     }//GEN-LAST:event_jTextField5MouseClicked
+
+    private void jTextFiel_BR1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFiel_BR1KeyPressed
+       jTextFiel_BR1.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+                java.util.Collections.EMPTY_SET);
+        if (evt.getKeyCode() == KeyEvent.VK_TAB) {
+            jPasswordRound_BD1.requestFocus();
+            jPasswordRound_BD1.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_jTextFiel_BR1KeyPressed
+
+    private void jTextFiel_BR1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFiel_BR1KeyTyped
+      this.B_mensaje();
+    }//GEN-LAST:event_jTextFiel_BR1KeyTyped
 
     public void M_mensaje() {
         if (jTextFiel_BR1.getText().length() == 0) {
