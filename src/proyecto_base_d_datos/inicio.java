@@ -720,7 +720,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204))); 
     }//GEN-LAST:event_jTextField1FocusGained
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
@@ -732,7 +732,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204)));
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
@@ -746,7 +746,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204)));
     }//GEN-LAST:event_jTextField3FocusGained
 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
@@ -759,7 +759,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3MouseClicked
 
     private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204)));
     }//GEN-LAST:event_jTextField4FocusGained
 
     private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
