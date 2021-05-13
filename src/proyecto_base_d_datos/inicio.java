@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import JTextField.jTextFiel_BR;
+import JPassword.JPasswordRound_BD;
 
 /**
  *
@@ -24,6 +26,24 @@ import javax.swing.JOptionPane;
 public class inicio extends javax.swing.JFrame {
 
     AnimationClass animacion = new AnimationClass();
+    String correo = "Correo";
+    String Contraseña = "Contraseña";
+
+    public String getContraseña() {
+        return Contraseña;
+    }
+
+    public void setContraseña(String Contraseña) {
+        this.Contraseña = Contraseña;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
 
     int iterador = 0;
     int estado = 0;
@@ -36,7 +56,8 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        this.M_mensaje();
+        this.M_mensaje(jTextFiel_BR1, getCorreo());
+        this.JPMostrar_Msj(jPasswordRound_BD1, getContraseña());
         this.iniciarJPasswordField();
         this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
@@ -54,7 +75,6 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        this.M_mensaje();
         this.iniciarJPasswordField();
         this.setIconImage(new ImageIcon(getClass().getResource("/img/imagen.png")).getImage());
         jTextFiel_BR1.setCaretPosition(0);
@@ -189,6 +209,11 @@ public class inicio extends javax.swing.JFrame {
         jPasswordRound_BD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordRound_BD1ActionPerformed(evt);
+            }
+        });
+        jPasswordRound_BD1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordRound_BD1KeyTyped(evt);
             }
         });
 
@@ -601,21 +626,20 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordRound_BD1ActionPerformed
 
     private void jTextFiel_BR1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFiel_BR1FocusLost
-        this.M_mensaje();
+        this.JTBorrar_Msj(jTextFiel_BR1, getCorreo());
     }//GEN-LAST:event_jTextFiel_BR1FocusLost
 
     private void jTextFiel_BR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFiel_BR1MouseClicked
-        this.B_mensaje();
-        jTextFiel_BR1.setCaretPosition(0);
+        this.JTBorrar_Msj(jTextFiel_BR1, getCorreo());
     }//GEN-LAST:event_jTextFiel_BR1MouseClicked
 
     private void jPasswordRound_BD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordRound_BD1MouseClicked
-        this.B_mensajee();
-        jPasswordRound_BD1.setEchoChar('•');
+        this.JPBorrar_Msj(jPasswordRound_BD1, getContraseña());
+        //  jPasswordRound_BD1.setEchoChar('•');
     }//GEN-LAST:event_jPasswordRound_BD1MouseClicked
 
     private void jPasswordRound_BD1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordRound_BD1FocusLost
-        iniciarJPasswordField();
+        this.JPMostrar_Msj(jPasswordRound_BD1, getContraseña());
     }//GEN-LAST:event_jPasswordRound_BD1FocusLost
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -631,16 +655,16 @@ public class inicio extends javax.swing.JFrame {
                 jTextFiel_BR1.setText("");
                 jPasswordRound_BD1.setText("");
 
-                consulta pr = new consulta(ID,password);
+                consulta pr = new consulta(ID, password);
                 this.setVisible(false);
                 pr.setVisible(true);
 
                 mysql.cerrar_connection();
             } else {
-                JOptionPane.showMessageDialog(null,"usuario no existente");
+                JOptionPane.showMessageDialog(null, "usuario no existente");
             }
         } else if (ID.trim().length() == 0) {
-            
+
             JOptionPane.showMessageDialog(null, "llene los campos vacios");
             jTextFiel_BR1.setBackground(new Color(249, 107, 107));
         } else if (password.trim().length() == 0) {
@@ -683,8 +707,8 @@ public class inicio extends javax.swing.JFrame {
 
             estado = 1;
         }
-        
-         if (Apellido.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
+
+        if (Apellido.trim().length() == 0) { //retificando que no allan quedado los jtexfield -> ID
             jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 2));
 
             estado = 1;
@@ -697,7 +721,7 @@ public class inicio extends javax.swing.JFrame {
         if (estado == 0) {
             int numero = Integer.parseInt(Telefono);
             String N_usuario = Nombre + " " + Apellido;
-            int estatus = mysql.Insert_encuestas("encuestas",N_usuario, Correo, numero, num_localidad, problematica, ID);
+            int estatus = mysql.Insert_encuestas("encuestas", N_usuario, Correo, numero, num_localidad, problematica, ID);
             if (estatus == 1) {
                 JOptionPane.showMessageDialog(null, "Seguardo el dato con exito");
                 jTextField1.setText("");
@@ -768,7 +792,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204))); 
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 169, 204)));
     }//GEN-LAST:event_jTextField1FocusGained
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
@@ -832,15 +856,15 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5FocusGained
 
     private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
-         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(171, 173, 179)));
     }//GEN-LAST:event_jTextField5FocusLost
 
     private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
-       estado = 0;
+        estado = 0;
     }//GEN-LAST:event_jTextField5MouseClicked
 
     private void jTextFiel_BR1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFiel_BR1KeyPressed
-       jTextFiel_BR1.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+        jTextFiel_BR1.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 java.util.Collections.EMPTY_SET);
         if (evt.getKeyCode() == KeyEvent.VK_TAB) {
             jPasswordRound_BD1.requestFocus();
@@ -849,38 +873,45 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFiel_BR1KeyPressed
 
     private void jTextFiel_BR1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFiel_BR1KeyTyped
-      this.B_mensaje();
+        this.JTBorrar_Msj(jTextFiel_BR1, getCorreo());
     }//GEN-LAST:event_jTextFiel_BR1KeyTyped
 
-    public void M_mensaje() {
-        if (jTextFiel_BR1.getText().length() == 0) {
+    private void jPasswordRound_BD1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordRound_BD1KeyTyped
+        this.JPBorrar_Msj(jPasswordRound_BD1, getContraseña());
+    }//GEN-LAST:event_jPasswordRound_BD1KeyTyped
 
-            jTextFiel_BR1.setForeground(Color.decode(color_Lfantasta));
-            jTextFiel_BR1.setText("Correo");
+    public void M_mensaje(jTextFiel_BR jl, String text) {
+        if (jl.getText().length() == 0) {
+
+            jl.setForeground(Color.decode(color_Lfantasta));
+            jl.setText(text);
         }
     }
 
-    public void M_mensajee() {
-        if (jPasswordRound_BD1.getText().length() == 0) {
-
-            jPasswordRound_BD1.setForeground(Color.decode(color_Lfantasta));
-            jPasswordRound_BD1.setText("Contreña");
+    public void JTBorrar_Msj(jTextFiel_BR fl, String Mensaje) {
+        if (fl.getText().equals(Mensaje)) {
+            fl.setText("");
+            fl.setForeground(Color.decode(color_Lnegroo));
+            fl.setCaretPosition(0);
         }
     }
 
-    public void B_mensaje() {
-        String l;
-        if (jTextFiel_BR1.getText().length() != 0) {
-            jTextFiel_BR1.setText("");
-            jTextFiel_BR1.setForeground(Color.decode(color_Lnegroo));
+    public void JPBorrar_Msj(JPasswordRound_BD fl, String Mensaje) {
+        if (fl.getText().equals(Mensaje)) {
+            fl.setText("");
+            fl.setForeground(Color.decode(color_Lnegroo));
+            fl.setCaretPosition(0);
+            fl.setEchoChar('•');
+
         }
     }
 
-    public void B_mensajee() {
-        String l;
-        if (jPasswordRound_BD1.getText().length() != 0) {
-            jPasswordRound_BD1.setText("");
-            jPasswordRound_BD1.setForeground(Color.decode(color_Lnegroo));
+    public void JPMostrar_Msj(JPasswordRound_BD fl, String mensaje) {
+
+        if (fl.getText().length() == 0) {
+            fl.setForeground(Color.decode(color_Lfantasta));
+            fl.setText(mensaje);
+            fl.setEchoChar((char) 0);
         }
     }
 
@@ -889,7 +920,7 @@ public class inicio extends javax.swing.JFrame {
         String mensajePass = jPasswordRound_BD1.getText();
         if (mensajePass.equals(null) || mensajePass.equals("")) {//SOLO SE INICIA EL PLACEHOLDER SI NO EXISTE TEXTO EN EL PASSWORDFIELD
 
-            this.M_mensajee();
+            this.JPMostrar_Msj(jPasswordRound_BD1, getContraseña());
             jPasswordRound_BD1.setEchoChar((char) 0); //SE CONVIERTE A LETRAS LO QUE ENVIAMOS AL JPASSWORDFIELD
 
         }

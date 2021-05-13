@@ -5,6 +5,7 @@
  */
 package proyecto_base_d_datos;
 
+import JTextField.jTextFiel_BR;
 import clases.connection_mysql;
 import java.awt.Color;
 
@@ -17,7 +18,15 @@ public class delete_data extends javax.swing.JDialog {
     
     String color_Lnegroo = "#000000";
     String color_Lfantasta ="#818181";
-    
+    String id = "Ingrese ID";
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     
     public delete_data(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -126,6 +135,11 @@ public class delete_data extends javax.swing.JDialog {
                 jTextFiel_BR1MouseClicked(evt);
             }
         });
+        jTextFiel_BR1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFiel_BR1KeyTyped(evt);
+            }
+        });
         jPanel1.add(jTextFiel_BR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 435, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,11 +182,11 @@ public class delete_data extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jTextFiel_BR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFiel_BR1MouseClicked
-        this.B_mensaje();
+        this.JTBorrar_Msj(jTextFiel_BR1,getId());
     }//GEN-LAST:event_jTextFiel_BR1MouseClicked
 
     private void jTextFiel_BR1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFiel_BR1FocusLost
-      this.M_mensaje();
+      this.M_mensaje(jTextFiel_BR1,getId());
     }//GEN-LAST:event_jTextFiel_BR1FocusLost
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -180,6 +194,10 @@ public class delete_data extends javax.swing.JDialog {
      jTextFiel_BR1.requestFocus();//INICIAR EL CURSOR SOBRE EL TEXTFIELD NOMBRE
         jTextFiel_BR1.setCaretPosition(0);//INDICAR QUE EL CURSOR ESTARA EL PRINCIPIO DEL PLACEHOLDER 
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jTextFiel_BR1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFiel_BR1KeyTyped
+        this.JTBorrar_Msj(jTextFiel_BR1,getId());
+    }//GEN-LAST:event_jTextFiel_BR1KeyTyped
      
     
      public void M_mensaje( ){
@@ -198,6 +216,21 @@ public class delete_data extends javax.swing.JDialog {
         } 
     }
     
+   public void M_mensaje(jTextFiel_BR jl, String text) {
+        if (jl.getText().length() == 0) {
+
+            jl.setForeground(Color.decode(color_Lfantasta));
+            jl.setText(text);
+        }
+    }
+
+    public void JTBorrar_Msj(jTextFiel_BR fl, String Mensaje) {
+        if (fl.getText().equals(Mensaje)) {
+            fl.setText("");
+            fl.setForeground(Color.decode(color_Lnegroo));
+            fl.setCaretPosition(0);
+        }
+    }    
     
     /**
      * @param args the command line arguments
