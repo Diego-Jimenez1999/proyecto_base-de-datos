@@ -340,7 +340,7 @@ public class inicio extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(111, 115, 131));
-        jLabel8.setText("Apellido");
+        jLabel8.setText("Correo");
 
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -380,7 +380,7 @@ public class inicio extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(0, 169, 204));
         jSeparator5.setForeground(new java.awt.Color(0, 169, 204));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Antonio nariño", "Barrios Unidos", "Bosa", "Chapinero ", "Ciudad Bolivar", "Engativa Fontivón", "Kennedy", "La candelaria", "Los Mártires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristobal", "Santa Fe ", "Suba", "Sumapaz", "Teusaquillo", "Tunguelito", "Usaquen ", "Usme" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Antonio nariño", "Barrios Unidos", "Bosa", "Chapinero", "Ciudad Bolivar", "Engativa", "Fontibon", "Kennedy", "La candelaria", "Los Mártires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristobal", "Santa Fe", "Suba", "Sumapaz", "Teusaquillo", "Tunjuelito", "Usaquen", "Usme" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
