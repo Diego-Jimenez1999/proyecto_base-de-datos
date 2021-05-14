@@ -70,7 +70,7 @@ public class consulta extends javax.swing.JFrame {
         //inserta la imagen dependiendo el genero
         switch (genero) {
 
-            case "H" ->
+            case "M" ->
                 jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_M.png")));
             case "F" ->
                 jLabel1.setIcon(new ImageIcon(getClass().getResource("/img/gn_F.png")));
@@ -104,7 +104,6 @@ public class consulta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Control de Datos");
-        setPreferredSize(new java.awt.Dimension(1230, 745));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
